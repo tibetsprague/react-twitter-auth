@@ -28,7 +28,7 @@ class TwitterLogin extends Component {
     var popup = this.openPopup();
 
     return window.fetch(this.props.requestTokenUrl, {
-      method: 'POST',
+      method: 'GET',
       credentials: this.props.credentials,
       headers: this.getHeaders()
     }).then(response => {
@@ -94,7 +94,7 @@ class TwitterLogin extends Component {
 
   getOauthToken(oAuthVerifier, oauthToken) {
     return window.fetch(`${this.props.loginUrl}?oauth_verifier=${oAuthVerifier}&oauth_token=${oauthToken}`, {
-      method: 'POST',
+      method: 'GET',
       credentials: this.props.credentials,
       headers: this.getHeaders()
     }).then(response => {
